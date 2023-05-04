@@ -1,7 +1,7 @@
 import express from 'express';
 import connectDataBase  from './src/database/db.js';
 import dotenv from "dotenv";
-var cors = require('cors')
+import cors from "cors";
 
 import userRoute from "./src/routes/user.route.js";
 import authRoute from "./src/routes/auth.route.js";
