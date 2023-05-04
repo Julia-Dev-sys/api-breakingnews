@@ -1,6 +1,7 @@
 import express from 'express';
 import connectDataBase  from './src/database/db.js';
 import dotenv from "dotenv";
+var cors = require('cors')
 
 import userRoute from "./src/routes/user.route.js";
 import authRoute from "./src/routes/auth.route.js";
@@ -15,17 +16,9 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 const app = express();
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-  });
-
 
 connectDataBase();
+app.use(cors());
 app.use(express.json());
 app.use("/user", userRoute);
 app.use("/auth", authRoute);
