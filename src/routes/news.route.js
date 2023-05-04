@@ -4,6 +4,8 @@ const router = Router();
 import {create,findAll, topNews,findById,searchByTitle,byUser,update,erase,likeNews,addComment,deleteComment} from "../controllers/news.controller.js";
 import { authMiddleware } from "../middlewares/auth.middleware.js";
 
+
+
 router.post("/",authMiddleware, create);
 router.get("/", findAll);
 router.get("/top",topNews);
