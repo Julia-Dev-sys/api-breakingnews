@@ -15,6 +15,15 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 const app = express();
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://api-breakingnews.onrender.com");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+
 
 connectDataBase();
 app.use(express.json());
