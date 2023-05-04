@@ -202,7 +202,7 @@ export const update = async (req, res) => {
 
     //console.log(typeof news.user._id, typeof req.userId)
 
-    if (String(news.user._id) !== req.userId) {
+    if (String(news.user._id) !== String(req.userId)) {
       return res.status(400).send({
         message: "You didn't update this News",
       });
